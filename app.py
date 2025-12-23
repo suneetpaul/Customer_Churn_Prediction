@@ -20,8 +20,8 @@ ml_feature_names = ml_model.feature_names_in_
 
 # ---------------- Load ANN Model ----------------
 
-with open("ann_features.pkl", "rb") as f:
-   ann_model = pickle.load(f)
+#with open("ann_features.pkl", "rb") as f:
+#   ann_model = pickle.load(f)
 
 # ---------------- Load Scaler ----------------
 scaler = None
@@ -146,18 +146,18 @@ if submitted_ml:
     show_pie_chart(prob, "ML Model Churn Prediction")
 
 # ---------------- ANN Model Prediction ----------------
-if submitted_ann:
-    input_df = prepare_input_df(inputs, ann_model, scaler)
-    prob = ann_model.predict(input_df, verbose=0)[0][0]
-
-    st.subheader("🧠 ANN Model Prediction")
-    if prob > 0.5:
-        st.error(f"🚨 Customer Likely to Churn — {prob*100:.2f}%")
-    else:
-        st.success(f"✅ Customer Not Likely to Churn — {(1-prob)*100:.2f}%")
-
-    show_pie_chart(prob, "ANN Model Churn Prediction")
-
+#if submitted_ann:
+#    input_df = prepare_input_df(inputs, ann_model, scaler)
+#    prob = ann_model.predict(input_df, verbose=0)[0][0]
+#
+#    st.subheader("🧠 ANN Model Prediction")
+#    if prob > 0.5:
+#        st.error(f"🚨 Customer Likely to Churn — {prob*100:.2f}%")
+#    else:
+#        st.success(f"✅ Customer Not Likely to Churn — {(1-prob)*100:.2f}%")
+#
+#    show_pie_chart(prob, "ANN Model Churn Prediction")
+#
 # ---------------- Full Dataset Prediction ----------------
 
 
